@@ -9,14 +9,10 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        /*
         getNotifications()
-            .then(function (docs) {
-                this.setState({
-                    users: docs
-                });
+            .then(function (notifications) {
+                this.setState(notifications);
             }.bind(this))
-            */
     }
 
     render() {
@@ -30,29 +26,32 @@ class Home extends Component {
             return (
                 <div>
                     <h4 className='center-align'>Notifications</h4>
-                    {/*
                     <div className='row'>
-                        {this.state.users.map((user, index) => {
+                        {this.state.notifications.map((notification, index) => {
                             return (
-                                <div className='col s12 m6 l6' key={index}>
-                                    <h5 className='header flow-text'>
-                                        {user.firstName && user.lastName ? user.firstName + ' ' + user.lastName : user.email}
-                                    </h5>
-                                    <div className='card horizontal'>
-                                        <div>
-                                            <img className='circle' src={user.picture} height='150px' width='150px'/>
+                                <form className="col s12" key={index}>
+                                    <div className="row">
+                                        <div className="input-field col s6">
+                                            <label htmlFor="first_name">Pill Name</label>
+                                            <input value={notification.pillName}
+                                                   id="first_name" type="text"/>
                                         </div>
-                                        <div className='card-stacked'>
-                                            <div className='card-content'>
-                                                <p className='flow-text'>{user.description}</p>
-                                            </div>
+                                        <div className="input-field col s6">
+                                            <label htmlFor="last_name">When to notify</label>
+                                            <input value={notification.time}
+                                                   id="time" type="text"/>
+                                        </div>
+                                        <div className="input-field col s6">
+                                            <label htmlFor="last_name">When to notify</label>
+                                            <input value={notification.email}
+                                                   id="time" type="text"/>
                                         </div>
                                     </div>
-                                </div>
+
+                                </form>
                             )
                         })}
                     </div>
-                     */}
                 </div>
             )
         }
