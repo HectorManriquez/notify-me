@@ -14,7 +14,7 @@ export const port = process.env.PORT || 3000;
  */
 export const api_key = process.env.MAILGUN_API_KEY;
 export const domain = process.env.MAILGUN_DOMAIN;
-export const fromWho = proces.env.MAILGUN_FROM;
+export const fromWho = process.env.MAILGUN_FROM;
 
 /**
  * Database configuration
