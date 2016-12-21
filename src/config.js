@@ -12,7 +12,7 @@ export const port = process.env.PORT || 3000;
 /**
  * Mailgun configuration
  */
-export const api_key = process.env.MAILGUN_API_KEY;
+export const apiKey = process.env.MAILGUN_API_KEY;
 export const domain = process.env.MAILGUN_DOMAIN;
 export const fromWho = process.env.MAILGUN_FROM;
 
