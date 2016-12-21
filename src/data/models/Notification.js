@@ -10,7 +10,11 @@ const notificationSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    time:{
+    time: {
+        type: String,
+        require: true
+    },
+    email: {
         type: String,
         require: true
     }
