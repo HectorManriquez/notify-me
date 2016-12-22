@@ -79,11 +79,7 @@ router.get('/getNotifications', (req, res) => {
  * POST /createNotification
  */
 router.post('/createNotification', (req, res) => {
-    Notification.create({
-        pillName: req.body.pillName,
-        time: req.body.time,
-        email: req.body.email
-    }, (err) => {
+    Notification.create(req.body, (err) => {
         if (err) {
             res.send({
                 status: 'failed to create notification'
