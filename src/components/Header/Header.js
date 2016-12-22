@@ -8,9 +8,9 @@ class Head extends Component {
                     <a href='/' className='brand-logo center'>Notify Me</a>
                     <ul className='right'>
                         <li>
-                            <a className="btn-floating btn-large waves-effect waves-light blue-grey lighten-2 modal-trigger"
+                            <a className='btn-floating btn-large waves-effect waves-light blue-grey lighten-2 modal-trigger'
                                href='#addModal' ref='addModal'>
-                                <i className="material-icons">add</i>
+                                <i className='material-icons'>add</i>
                             </a>
                         </li>
                     </ul>

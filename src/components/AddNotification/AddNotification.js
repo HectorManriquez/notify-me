@@ -24,10 +24,10 @@ class Add extends Component {
 
     render() {
         return (
-            <div id="addModal" className="modal">
-                <div className="modal-content">
-                    <h4 className="center-align">Add A Notification</h4>
-                    <form className="col s12">
+            <div id='addModal' className='modal'>
+                <div className='modal-content'>
+                    <h4 className='center-align'>Add A Notification</h4>
+                    <form className='col s12'>
                         <div className='input-field col s6'>
                             <label htmlFor='pillName'>Pill Name</label>
                             <input id='pillName' type='text' onChange={this.handleChange}/>
@@ -42,8 +42,8 @@ class Add extends Component {
                         </div>
                     </form>
                 </div>
-                <div className="modal-footer">
-                    <button className="modal-action modal-close waves-effect waves-green btn-flat"
+                <div className='modal-footer'>
+                    <button className='modal-action modal-close waves-effect waves-green btn-flat'
                             onClick={this.handleCreateButton}> Create
                     </button>
                 </div>
