@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import updateNotification from '../../utils/updateNotification';
+import deleteNotification from '../../utils/deleteNotification';
 
 class Notification extends Component {
     constructor() {
@@ -31,13 +33,27 @@ class Notification extends Component {
     handleUpdateButton(event) {
         event.preventDefault();
 
-        console.log(this.state);
+        updateNotification({
+            pillName: this.state.originalPillName,
+            update: {
+                pillName: this.state.pillName,
+                time: this.state.time,
+                email: this.state.email
+            }
+        });
     }
 
     handleDeleteButton(event) {
         event.preventDefault();
 
-        console.log(this.state);
+        deleteNotification({
+            pillName: this.state.originalPillName
+        })
+            .then((res) => {
+                if (res.status) {
+                    document.location.href = '/';
+                }
+            });
     }
 
     render() {
@@ -51,13 +67,15 @@ class Notification extends Component {
                     </div>
                     <div className='col s6'>
                         <button className='waves-effect waves-light btn blue-grey lighten-2'
-                                onClick={this.handleUpdateButton}>Delete</button>
+                                onClick={this.handleDeleteButton}>Delete
+                        </button>
                     </div>
                 </div>
             </div> :
             <div className='center col s6'>
                 <button className='waves-effect waves-light btn blue-grey lighten-2'
-                        onClick={this.handleUpdateButton}>Delete</button>
+                        onClick={this.handleDeleteButton}>Delete
+                </button>
             </div>;
 
         return (

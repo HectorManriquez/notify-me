@@ -101,27 +101,45 @@ router.post('/createNotification', (req, res) => {
  * POST /updateNotification
  */
 router.post('/updateNotification', (req, res) => {
-    console.log(req.body);
+    Notification.findOneAndUpdate({pillName: req.body.pillName},
+        req.body.update, {
+            new: true
+        }, (err, notification) => {
+            if (err) {
+                res.send({
+                    status: 'failed to update notification'
+                });
+            } else {
+                agenda.cancel({
+                    name: 'notify me ' + req.body.pillName
+                }, () => {
+                    addToAgenda(notification.pillName, notification.time);
+                    res.send({
+                        status: 'notification updated'
+                    });
+                });
+            }
+        })
+});
 
-    Notification.findByIdAndUpdate(req.body.id, {
-        pillName: req.body.pillName,
-        time: req.body.time,
-        email: req.body.email
-    }, {
-        new: false
-    }, (err, notification) => {
+/**
+ * POST /deleteNotification
+ */
+router.post('/deleteNotification', (req, res) => {
+    console.log('deleteNotification');
+    Notification.findOneAndRemove({
+        pillName: req.body.pillName
+    }, (err, notification, result) => {
         if (err) {
             res.send({
-                status: 'failed to update notification'
+                status: false
             });
         } else {
-            console.log(notification);
             agenda.cancel({
-                name: 'notify me ' + notification.pillName
-            }, (err, numRemoved) => {
-                addToAgenda(req.body.pillName, req.body.time);
+                name: 'notify me ' + req.body.pillName
+            }, () => {
                 res.send({
-                    status: 'notification updated'
+                    status: true
                 });
             });
         }
