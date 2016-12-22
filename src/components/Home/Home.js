@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import getNotifications from '../../utils/getNotification';
+import Notification from '../Notification/Notification';
 
 class Home extends Component {
     constructor() {
@@ -8,20 +9,16 @@ class Home extends Component {
         this.state = null;
     }
 
-    componentDidMount() {
+    componentWillMount() {
         getNotifications()
-            .then(function (notifications) {
+            .then((notifications) => {
                 this.setState(notifications);
-            }.bind(this))
+            })
     }
 
     render() {
         if (!this.state) {
-            return (
-                <div>
-                    <h4>No notifications, add one!</h4>
-                </div>
-            )
+            return <h4>No notifications, add one!</h4>
         } else {
             return (
                 <div>
@@ -29,26 +26,10 @@ class Home extends Component {
                     <div className='row'>
                         {this.state.notifications.map((notification, index) => {
                             return (
-                                <form className="col s12" key={index}>
-                                    <div className="row">
-                                        <div className="input-field col s6">
-                                            <label htmlFor="first_name">Pill Name</label>
-                                            <input value={notification.pillName}
-                                                   id="first_name" type="text"/>
-                                        </div>
-                                        <div className="input-field col s6">
-                                            <label htmlFor="last_name">When to notify</label>
-                                            <input value={notification.time}
-                                                   id="time" type="text"/>
-                                        </div>
-                                        <div className="input-field col s6">
-                                            <label htmlFor="last_name">When to notify</label>
-                                            <input value={notification.email}
-                                                   id="time" type="text"/>
-                                        </div>
-                                    </div>
-
-                                </form>
+                                <Notification key={index}
+                                              pillName={notification.pillName}
+                                              time={notification.time}
+                                              email={notification.email}/>
                             )
                         })}
                     </div>
