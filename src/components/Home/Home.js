@@ -12,13 +12,15 @@ class Home extends Component {
     componentWillMount() {
         getNotifications()
             .then((notifications) => {
-                this.setState(notifications);
+                if(notifications.notifications.length > 0) {
+                    this.setState(notifications);
+                }
             })
     }
 
     render() {
         if (!this.state) {
-            return <h4>No notifications, add one!</h4>
+            return <h4 className='center-align'>No notifications, add one!</h4>
         } else {
             return (
                 <div>
