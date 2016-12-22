@@ -23,10 +23,6 @@ class Notification extends Component {
         };
     }
 
-    componentDidMount() {
-        Materialize.updateTextFields();
-    }
-
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value,
@@ -86,17 +82,17 @@ class Notification extends Component {
             <form className='col s12'>
                 <div className='row'>
                     <div className='input-field col s6'>
-                        <label htmlFor='pillName'>Pill Name</label>
+                        <label className='active' htmlFor='pillName'>Pill Name</label>
                         <input value={this.state.pillName}
                                id='pillName' type='text' onChange={this.handleChange}/>
                     </div>
                     <div className='input-field col s6'>
-                        <label htmlFor='time'>When to notify</label>
+                        <label className='active' htmlFor='time'>When to notify</label>
                         <input value={this.state.time}
                                id='time' type='text' onChange={this.handleChange}/>
                     </div>
                     <div className='input-field col s6'>
-                        <label htmlFor='email'>Email</label>
+                        <label className='active' htmlFor='email'>Email</label>
                         <input value={this.state.email}
                                id='email' type='text' onChange={this.handleChange}/>
                     </div>
