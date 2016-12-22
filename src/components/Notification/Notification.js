@@ -96,7 +96,7 @@ class Notification extends Component {
                                id='time' type='text' onChange={this.handleChange}/>
                     </div>
                     <div className='input-field col s6'>
-                        <label htmlFor='email'>When to notify</label>
+                        <label htmlFor='email'>Email</label>
                         <input value={this.state.email}
                                id='email' type='text' onChange={this.handleChange}/>
                     </div>
