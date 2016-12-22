@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-function updateNotifications(notification) {
+function updateNotification(notification) {
     return axios({
         url: '/api/updateNotification',
         timeout: 20000,
@@ -13,4 +13,4 @@ function updateNotifications(notification) {
         })
 }
 
-export default updateNotifications;
+export default updateNotification;
