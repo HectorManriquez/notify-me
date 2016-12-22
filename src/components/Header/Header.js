@@ -7,8 +7,11 @@ class Head extends Component {
                 <div className='nav-wrapper blue-grey lighten-3'>
                     <a href='/' className='brand-logo center'>Notify Me</a>
                     <ul className='right'>
-                        <i className='material-icons'>menu</i>
-                        <li><a href='/Add'>Add Notification</a></li>
+                        <li>
+                            <a className="btn-floating btn-large waves-effect waves-light blue-grey lighten-2">
+                                <i className="material-icons">add</i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
