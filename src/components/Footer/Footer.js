@@ -5,7 +5,7 @@ class Head extends Component {
         return (
             <footer className='page-footer blue-grey lighten-3'>
                 <div className='footer-copyright'>
-                    <div className='container'>
+                    <div className='center-align'>
                         ©2014 Hector Manriquez
                     </div>
                 </div>
