@@ -7,10 +7,13 @@ class Notification extends Component {
         this.state = null;
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleUpdateButton = this.handleUpdateButton.bind(this);
+        this.handleDeleteButton = this.handleDeleteButton.bind(this);
     }
 
     componentWillMount() {
         this.state = {
+            originalPillName: this.props.pillName,
             pillName: this.props.pillName,
             time: this.props.time,
             email: this.props.email,
@@ -22,9 +25,19 @@ class Notification extends Component {
         this.setState({
             [event.target.id]: event.target.value,
             changed: true
-        }, () => {
-            console.log(this.state);
         });
+    }
+
+    handleUpdateButton(event) {
+        event.preventDefault();
+
+        console.log(this.state);
+    }
+
+    handleDeleteButton(event) {
+        event.preventDefault();
+
+        console.log(this.state);
     }
 
     render() {
@@ -32,16 +45,21 @@ class Notification extends Component {
             <div className='col s6'>
                 <div className='row center'>
                     <div className='col s6'>
-                        <button className='waves-effect waves-light btn blue-grey lighten-2'>Update</button>
+                        <button className='waves-effect waves-light btn blue-grey lighten-2'
+                                onClick={this.handleUpdateButton}>Update
+                        </button>
                     </div>
                     <div className='col s6'>
-                        <button className='waves-effect waves-light btn blue-grey lighten-2'>Delete</button>
+                        <button className='waves-effect waves-light btn blue-grey lighten-2'
+                                onClick={this.handleUpdateButton}>Delete</button>
                     </div>
                 </div>
             </div> :
             <div className='center col s6'>
-                <button className='waves-effect waves-light btn blue-grey lighten-2'>Delete</button>
+                <button className='waves-effect waves-light btn blue-grey lighten-2'
+                        onClick={this.handleUpdateButton}>Delete</button>
             </div>;
+
         return (
             <form className='col s12'>
                 <div className='row'>
