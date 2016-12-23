@@ -1,22 +1,33 @@
 import React, {Component} from 'react';
-import createNotification from '../../utils/createNotification';
+import createRepeatNotification from '../../utils/createRepeatNotification';
+import createScheduleNotification from '../../utils/createScheduleNotification';
 
 class Add extends Component {
     constructor() {
         super();
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleCreateButton = this.handleCreateButton.bind(this);
+        this.handleRepeatCreateButton = this.handleRepeatCreateButton.bind(this);
+        this.handleScheduleCreateButton = this.handleScheduleCreateButton.bind(this);
     }
 
     handleChange(event) {
         this.setState({[event.target.id]: event.target.value});
     }
 
-    handleCreateButton() {
-        createNotification(this.state)
+    handleRepeatCreateButton() {
+        createRepeatNotification(this.state)
             .then((res) => {
-                if(res.status) {
+                if (res.status) {
+                    document.location.href = '/';
+                }
+            });
+    }
+
+    handleScheduleCreateButton() {
+        createScheduleNotification(this.state)
+            .then((res) => {
+                if (res.status) {
                     document.location.href = '/';
                 }
             });
@@ -44,7 +55,10 @@ class Add extends Component {
                 </div>
                 <div className='modal-footer'>
                     <button className='modal-action modal-close waves-effect waves-green btn-flat'
-                            onClick={this.handleCreateButton}> Create
+                            onClick={this.handleScheduleCreateButton}> Schedule
+                    </button>
+                    <button className='modal-action modal-close waves-effect waves-green btn-flat'
+                            onClick={this.handleRepeatCreateButton}> Repeat
                     </button>
                 </div>
             </div>
