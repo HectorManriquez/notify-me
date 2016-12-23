@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-function createNotification(notification) {
+function createRepeatNotification(notification) {
     return axios({
-        url: '/api/createNotification',
+        url: '/api/createRepeatNotification',
         timeout: 20000,
         method: 'post',
         responseType: 'json',
@@ -13,4 +13,4 @@ function createNotification(notification) {
         })
 }
 
-export default createNotification;
+export default createRepeatNotification;
